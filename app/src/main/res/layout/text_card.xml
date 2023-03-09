@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:padding="16dp"
+        android:background="@drawable/card_background"
+        >
+
+        <RelativeLayout
+            android:id="@+id/cardBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:minHeight="48dp"
+            android:layout_marginVertical="10dp">
+
+            <ImageView
+                android:id="@+id/profile_icon_card"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:src="@drawable/profile" />
+
+            <TextView
+                android:id="@+id/textcard_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/profile_icon_card"
+                android:text="Lost Fedora"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/user_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textcard_username"
+                android:layout_marginLeft="6dp"
+                android:layout_toRightOf="@+id/profile_icon_card"
+                android:text="Agricultural Reseacher"
+                android:textColor="@color/green"
+                android:textSize="12dp" />
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/textCardTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="How do i treat swine flu in Piggery "
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/cardBody"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/textCardBody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="How do i treat swine flu in Piggery "
+            android:scaleType="centerCrop"
+            android:layout_below="@+id/textCardTitle"
+            android:clickable="true"
+            android:focusable="true"
+            android:textSize="16dp"/>
+
+        <RelativeLayout
+            android:id="@+id/card_icons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textCardBody"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            >
+
+            <ImageView
+                android:id="@+id/like_post_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_like"
+                />
+
+            <ImageView
+                android:id="@+id/comment_post_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_mode_comment"
+                android:layout_toRightOf="@+id/like_post_icon"
+                android:layout_marginHorizontal="100dp"
+                />
+
+            <ImageView
+                android:id="@+id/share_post_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_ios_share"
+                android:layout_toRightOf="@+id/comment_post_icon"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

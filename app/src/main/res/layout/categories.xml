@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_centerHorizontal="true"
+        android:paddingVertical="15dp"
+        android:background="#F7F7F7"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/categorylayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@+id/livestock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/card_background"
+                    android:layout_marginRight="15dp"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/livestockIcon"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:contentDescription="Livestock"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:src="@drawable/cow"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:id="@+id/livestockTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/livestockIcon"
+                        android:text="Livestock"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:textColor="@color/green"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/coffee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/livestock"
+                    android:background="@drawable/card_background"
+                    android:layout_marginRight="15dp"
+
+                    >
+
+                    <ImageButton
+                        android:id="@+id/coffeeIcon"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:src="@drawable/leaves"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:contentDescription="Coffee"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                    <TextView
+                        android:id="@+id/coffeeTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/coffeeIcon"
+                        android:text="Coffee"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:textColor="@color/green"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/paultry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/coffee"
+                    android:background="@drawable/card_background"
+                    android:layout_marginRight="15dp"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/paultryIcon"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:src="@drawable/hen"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                    <TextView
+                        android:id="@+id/paultryTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/paultryIcon"
+                        android:text="Paultry"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginHorizontal="10dp"
+                        android:textColor="@color/green"
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/piggery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/paultry"
+                    android:background="@drawable/card_background"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginRight="15dp"
+                    >
+                    <ImageButton
+                        android:id="@+id/piggeryIcon"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:src="@drawable/pig"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:contentDescription="Piggery"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerHorizontal="true"
+                        />
+                    <TextView
+                        android:id="@+id/piggeryTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/piggeryIcon"
+                        android:text="Piggery"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/green"
+
+                        />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/fruits"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/piggery"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/card_background"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/fruitsIcon"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:src="@drawable/fruit"
+                        android:contentDescription="fruits"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerHorizontal="true"
+                        />
+
+                    <TextView
+                        android:id="@+id/fruitsTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/fruitsIcon"
+                        android:layout_centerHorizontal="true"
+                        android:text="Fruit"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/green"
+
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/mushroom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/fruits"
+                    android:background="@drawable/card_background"
+                    android:layout_marginRight="15dp"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/mushroomIcon"
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:src="@drawable/mushroom"
+                        android:contentDescription="Mushroom"
+                        android:layout_marginRight="15dp"
+                        android:layout_centerHorizontal="true"/>
+
+                    <TextView
+                        android:id="@+id/mushroomTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/mushroomIcon"
+                        android:text="Mushroom"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginRight="15dp"
+                        android:textColor="@color/green"
+                        />
+                </RelativeLayout>
+            </RelativeLayout>
+        </RelativeLayout>
+    </HorizontalScrollView>
+</RelativeLayout>
