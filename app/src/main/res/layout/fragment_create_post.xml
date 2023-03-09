@@ -5,10 +5,89 @@
     android:layout_height="match_parent"
     tools:context=".CreatePostFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
+        android:id="@+id/topBar"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/logoImg"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:paddingStart="10dp"
+            android:src="@drawable/logo" />
+
+        <TextView
+            android:id="@+id/logoName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/logoImg"
+            android:fontFamily="sans-serif"
+            android:paddingTop="5dp"
+            android:text="Harvest"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_below="@id/topBar"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginVertical="20dp">
+
+            <EditText
+                android:id="@+id/titleField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/card_background_gray"
+                android:hint="Title"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"/>
+
+            <EditText
+                android:id="@+id/detailField"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@+id/titleField"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/card_background_gray"
+                android:hint="Detail"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"/>
+
+            <EditText
+                android:id="@+id/authorField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/detailField"
+                android:layout_marginVertical="16dp"
+                android:background="@drawable/card_background_gray"
+                android:hint="Author"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/authorField"
+                android:layout_centerHorizontal="true"
+                android:text="SEND"
+                android:onClick="sendIssueFunc"
+                tools:ignore="UsingOnClickInXml" />
+        </RelativeLayout>
+
+    </RelativeLayout>
 
 </FrameLayout>
