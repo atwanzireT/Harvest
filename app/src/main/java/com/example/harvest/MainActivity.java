@@ -21,9 +21,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.setSelectedItemId(R.id.home);
 
-        HomeFragment homeFragment = new HomeFragment();
-        NewsFragment newsFragment = new NewsFragment();
-        SettingFragment settingFragment = new SettingFragment();
     }
 
     @Override
@@ -39,6 +36,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
             case R.id.settings:
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new SettingFragment()).commit();
+                return true;
+            case R.id.createissue:
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new CreatePostFragment()).commit();
                 return true;
         }
         return false;
