@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
-
+        android:layout_height="wrap_content">
         <ImageView
             android:id="@+id/logoImg"
             android:layout_width="44dp"
@@ -24,7 +21,6 @@
             android:paddingTop="5dp"
             android:text="Harvest"
             android:fontFamily="sans-serif"
-            android:textColor="@color/black"
             android:layout_toRightOf="@id/logoImg"
             android:textSize="24dp" />
 
@@ -36,7 +32,7 @@
             android:layout_marginLeft="110dp"
             android:layout_marginTop="5dp"
             android:layout_toRightOf="@id/logoName"
-            android:src="@drawable/ic_baseline_supervised_user_circle" />
+            android:src="@drawable/ic_baseline_supervised_user_circle"/>
 
         <ImageButton
             style="@style/Widget.MaterialComponents.Button"
@@ -44,11 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/profileIconBar"
             android:src="@drawable/ic_baseline_search"
-            android:layout_marginTop="5dp" />
-
+            android:layout_marginTop="5dp"/>
     </RelativeLayout>
-
-
 
 
 </RelativeLayout>
