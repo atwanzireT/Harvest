@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.harvest.modals.IssueModal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
  * Use the {@link CreatePostFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CreatePostFragment extends Fragment {
+public class CreatePostFragment extends Fragment{
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +37,7 @@ public class CreatePostFragment extends Fragment {
 
     public CreatePostFragment() {
         // Required empty public constructor
+
     }
 
     /**
@@ -69,7 +71,44 @@ public class CreatePostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_post, container, false);
+        View view = inflater.inflate(R.layout.fragment_create_post, container, false);
+        Button sendIssueBtn = view.findViewById(R.id.sendIssueBtn);
+        sendIssueBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText titleField, detailField, authorField;
+                Button submitBtn;
+
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("issues");
+
+                titleField = view.findViewById(R.id.titleField);
+                detailField = view.findViewById(R.id.detailField);
+                authorField = view.findViewById(R.id.authorField);
+
+
+                String title = titleField.getText().toString();
+                String detail = detailField.getText().toString();
+                String author = authorField.getText().toString();
+
+                if (TextUtils.isEmpty(title) && TextUtils.isEmpty(detail) && TextUtils.isEmpty(author)) {
+                    // if the text fields are empty
+                    // then show the below message.
+                    Toast.makeText(getContext(), "Please Fill in the missing data.", Toast.LENGTH_SHORT).show();
+                } else {
+                    // else call the method to add
+                    // data to our database.
+                    IssueModal issueModal = new IssueModal(title, detail, author);
+                    myRef.child(title).setValue(issueModal).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast.makeText(getContext(), "Record Added Successfully", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+            }
+        });
+        return view;
     }
 
 }

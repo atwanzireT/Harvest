@@ -79,14 +79,13 @@
                 android:paddingVertical="20dp"/>
 
             <Button
+                android:id="@+id/sendIssueBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/authorField"
                 android:layout_centerHorizontal="true"
                 android:text="SEND"
-                android:onClick="sendIssueFunc"
                 android:background="@drawable/btn_background"
-                tools:ignore="UsingOnClickInXml"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp"/>
         </RelativeLayout>

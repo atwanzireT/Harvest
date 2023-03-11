@@ -52,6 +52,7 @@
 
                     <ImageButton
                         style="@style/Widget.MaterialComponents.Button"
+                        android:id="@+id/searchInputBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"
                         android:layout_marginTop="5dp"

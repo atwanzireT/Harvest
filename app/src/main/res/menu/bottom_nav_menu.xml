@@ -5,10 +5,6 @@
         android:title="Home"
         android:icon="@drawable/ic_baseline_home"/>
     <item
-        android:id="@+id/news"
-        android:title="News"
-        android:icon="@drawable/ic_baseline_newspaper"/>
-    <item
         android:id="@+id/createissue"
         android:title="Post"
         android:icon="@drawable/ic_baseline_post_add"/>
