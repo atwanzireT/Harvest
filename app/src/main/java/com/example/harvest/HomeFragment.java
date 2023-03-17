@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -82,14 +82,29 @@ public class HomeFragment extends Fragment {
         DatabaseReference database;
         IssueAdaptor issueAdaptor;
         ArrayList<IssueModal> list;
+//        ArrayList<IssueModal> list;
+        EditText searchField;
+        ImageButton searchBtn;
         recyclerView = view.findViewById(R.id.post_listRV);
-        database = FirebaseDatabase.getInstance().getReference("issues");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        IssueAdaptor.OnIssueClickListener onIssueClickListener;
+        searchField = view.findViewById(R.id.searchInput);
+        searchBtn = view.findViewById(R.id.searchInputBtn);
 
+//        Database Reference
+        database = FirebaseDatabase.getInstance().getReference("issues");
+
+        onIssueClickListener = new IssueAdaptor.OnIssueClickListener() {
+            @Override
+            public void onIssueClicked(int position) {
+                startActivity(new Intent(getContext(), IssueActivity.class));
+            }
+        };
 
         list = new ArrayList<>();
-        issueAdaptor = new IssueAdaptor(getContext(), list);
+        issueAdaptor = new IssueAdaptor(getContext(), list, onIssueClickListener);
+
         recyclerView.setAdapter(issueAdaptor);
 
         database.addValueEventListener(new ValueEventListener() {
@@ -107,17 +122,12 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-        ImageButton searchBtn = view.findViewById(R.id.searchInputBtn);
-        searchBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(), "clicked", Toast.LENGTH_SHORT).show();
-                Intent searchIntent = new Intent(getActivity(), SearchResultsActivity.class);
-                startActivity(searchIntent);
-                ((Activity) getActivity()).overridePendingTransition(0, 0);
-            }
-        });
         return view;
+
+
+    }
+
+    private void txtSearch(String str){
+//        FirebaseRecycler
     }
 }

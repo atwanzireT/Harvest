@@ -3,14 +3,12 @@ package com.example.harvest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.widget.TextView;
 
-public class SearchResultsActivity extends AppCompatActivity {
-    TextView infoTxt;
+public class IssueActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_results);
+        setContentView(R.layout.activity_issue);
     }
 }

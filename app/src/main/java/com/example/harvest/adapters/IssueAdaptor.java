@@ -19,9 +19,15 @@ public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder
     Context context;
     ArrayList<IssueModal> list;
 
-    public IssueAdaptor(Context context, ArrayList<IssueModal> list) {
+    private OnIssueClickListener onIssueClickListener;
+    public interface OnIssueClickListener {
+        void onIssueClicked(int position);
+    }
+
+    public IssueAdaptor(Context context, ArrayList<IssueModal> list, OnIssueClickListener onIssueClickListener) {
         this.context = context;
         this.list = list;
+        this.onIssueClickListener = onIssueClickListener;
     }
 
     @NonNull
@@ -41,6 +47,7 @@ public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder
 
     @Override
     public int getItemCount() {
+
         return list.size();
     }
 

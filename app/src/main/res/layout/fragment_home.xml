@@ -18,8 +18,8 @@
             android:orientation="vertical">
             <include
                 layout="@layout/topbar"/>
-            <include
-                layout="@layout/categories"/>
+<!--            <include-->
+<!--                layout="@layout/categories"/>-->
 
         </LinearLayout>
 

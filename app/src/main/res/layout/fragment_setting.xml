@@ -3,40 +3,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SettingFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:orientation="vertical"
-        android:gravity="center">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_icon_card"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:src="@drawable/profile"/>
-        </RelativeLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Fedora"
-            android:textSize="28dp"
-            android:textColor="@color/green_700"
-            android:layout_gravity="center"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Researcher"
-            android:textColor="@color/green_500"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Log Out"/>
-    </LinearLayout>
+        android:layout_marginTop="20dp">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/profile_card"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            app:cardCornerRadius="90dp">
+
+            <ImageView
+                android:id="@+id/user_profile_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/account_img"
+                />
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/upload_photo_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Photo"/>
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Logout"/>
+
+    </LinearLayout>
 
 </FrameLayout>
