@@ -43,24 +43,24 @@
                     android:background="@drawable/card_background">
 
 
-                    <EditText
+                    <SearchView
                         android:id="@+id/searchInput"
                         android:layout_width="200dp"
                         android:layout_height="wrap_content"
                         android:hint="Search"
                         tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
-                    <ImageButton
-                        style="@style/Widget.MaterialComponents.Button"
-                        android:id="@+id/searchInputBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="35dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_toRightOf="@+id/searchInput"
-                        android:background="@drawable/btn_background"
-                        android:paddingVertical="10dp"
-                        android:src="@drawable/ic_btn_search"
-                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
+<!--                    <ImageButton-->
+<!--                        style="@style/Widget.MaterialComponents.Button"-->
+<!--                        android:id="@+id/searchInputBtn"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:layout_marginTop="5dp"-->
+<!--                        android:layout_toRightOf="@+id/searchInput"-->
+<!--                        android:background="@drawable/btn_background"-->
+<!--                        android:paddingVertical="10dp"-->
+<!--                        android:src="@drawable/ic_btn_search"-->
+<!--                        tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />-->
                 </RelativeLayout>
 
                 <androidx.recyclerview.widget.RecyclerView

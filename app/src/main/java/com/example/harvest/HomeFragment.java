@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.harvest.adapters.IssueAdaptor;
@@ -22,6 +23,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -32,6 +34,15 @@ import java.util.ArrayList;
  * create an instance of this fragment.
  */
 public class HomeFragment extends Fragment {
+
+    RecyclerView recyclerView;
+    DatabaseReference database;
+    IssueAdaptor issueAdaptor;
+    ArrayList<IssueModal> list;
+    //        ArrayList<IssueModal> list;
+    SearchView searchField;
+    IssueAdaptor.OnIssueClickListener onIssueClickListener;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,36 +89,67 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        RecyclerView recyclerView;
-        DatabaseReference database;
-        IssueAdaptor issueAdaptor;
-        ArrayList<IssueModal> list;
-//        ArrayList<IssueModal> list;
-        EditText searchField;
-        ImageButton searchBtn;
         recyclerView = view.findViewById(R.id.post_listRV);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        IssueAdaptor.OnIssueClickListener onIssueClickListener;
         searchField = view.findViewById(R.id.searchInput);
-        searchBtn = view.findViewById(R.id.searchInputBtn);
-
-//        Database Reference
         database = FirebaseDatabase.getInstance().getReference("issues");
 
+        list = new ArrayList<>();
         onIssueClickListener = new IssueAdaptor.OnIssueClickListener() {
             @Override
             public void onIssueClicked(int position) {
-                startActivity(new Intent(getContext(), IssueActivity.class));
+                Toast.makeText(getContext(), "clicked on Issue", Toast.LENGTH_SHORT).show();
+
+//                startActivity(new Intent(getContext(), IssueActivity.class));
             }
         };
+        issueAdaptor = new IssueAdaptor(getContext(), list, onIssueClickListener);
 
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                list.clear();
+                for( DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    IssueModal issueModal = dataSnapshot.getValue(IssueModal.class);
+                    list.add(issueModal);
+                }
+                issueAdaptor.notifyDataSetChanged();
+                recyclerView.setAdapter(issueAdaptor);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(getContext(), "Failed to load issues", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        searchField.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                txtSearch(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                txtSearch(query);
+                return false;
+            }
+        });
+        return view;
+    }
+
+    private void txtSearch(String str){
         list = new ArrayList<>();
         issueAdaptor = new IssueAdaptor(getContext(), list, onIssueClickListener);
 
-        recyclerView.setAdapter(issueAdaptor);
+        //        Database Reference
+        Query query = FirebaseDatabase.getInstance().getReference("issues")
+                .orderByChild("title").startAt(str).endAt(str + "~");
 
-        database.addValueEventListener(new ValueEventListener() {
+//        database.child()
+        query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for( DataSnapshot dataSnapshot : snapshot.getChildren()){
@@ -115,6 +157,7 @@ public class HomeFragment extends Fragment {
                     list.add(issueModal);
                 }
                 issueAdaptor.notifyDataSetChanged();
+                recyclerView.setAdapter(issueAdaptor);
             }
 
             @Override
@@ -122,12 +165,5 @@ public class HomeFragment extends Fragment {
 
             }
         });
-        return view;
-
-
-    }
-
-    private void txtSearch(String str){
-//        FirebaseRecycler
     }
 }
