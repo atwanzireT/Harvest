@@ -34,6 +34,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.createissue:
                 getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new CreatePostFragment()).commit();
                 return true;
+            case R.id.users:
+                getSupportFragmentManager().beginTransaction().replace(R.id.flFragment, new FriendsFragment()).commit();
+                return true;
         }
         return false;
     }

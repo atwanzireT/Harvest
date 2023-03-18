@@ -32,7 +32,6 @@ public class LoginActivity extends AppCompatActivity {
 
     public void handleSignin(View view) {
         EditText emailField, passwordField;
-        ProgressBar bar;
         FirebaseAuth mAuth;
         emailField = findViewById(R.id.loginemailField);
         passwordField = findViewById(R.id.loginpasswordField);
@@ -52,10 +51,10 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Logged in", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         FirebaseDatabase.getInstance().getReference("user");
-//                    Intent loginIntent = new Intent(LoginActivity.this, homeActivity.class);
-//                    loginIntent.putExtra("email", mAuth.getCurrentUser().getEmail());
-//                    loginIntent.putExtra("uid", mAuth.getCurrentUser().getUid());
-//                    startActivity(loginIntent);
+                        Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        loginIntent.putExtra("email", mAuth.getCurrentUser().getEmail());
+                        loginIntent.putExtra("uid", mAuth.getCurrentUser().getUid());
+                        startActivity(loginIntent);
                     } else {
                         emailField.setText("");
                         passwordField.setText("");

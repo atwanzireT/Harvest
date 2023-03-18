@@ -61,7 +61,6 @@ public class SignUpActivity extends AppCompatActivity {
                                 emailField.setText("");
                                 passwordField.setText("");
                                 Toast.makeText(getApplicationContext(), "Process Error", Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     });
@@ -70,7 +69,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     public void switchToLogin(View view) {
         Toast.makeText(this, "clicked", Toast.LENGTH_SHORT).show();
-        Intent loginIntent = new Intent(SignUpActivity.this, MainActivity.class);
+        Intent loginIntent = new Intent(SignUpActivity.this, LoginActivity.class);
         startActivity(loginIntent);
     }
 
