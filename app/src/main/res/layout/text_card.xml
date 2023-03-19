@@ -71,40 +71,40 @@
             android:focusable="true"
             android:textSize="16dp"/>
 
-        <RelativeLayout
-            android:id="@+id/card_icons"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textCardBody"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            >
+<!--        <RelativeLayout-->
+<!--            android:id="@+id/card_icons"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/textCardBody"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            >-->
 
-            <ImageView
-                android:id="@+id/like_post_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_like"
-                />
+<!--            <ImageView-->
+<!--                android:id="@+id/like_post_icon"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_baseline_like"-->
+<!--                />-->
 
-            <ImageView
-                android:id="@+id/comment_post_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_mode_comment"
-                android:layout_toRightOf="@+id/like_post_icon"
-                android:layout_marginHorizontal="100dp"
-                />
+<!--            <ImageView-->
+<!--                android:id="@+id/comment_post_icon"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_baseline_mode_comment"-->
+<!--                android:layout_toRightOf="@+id/like_post_icon"-->
+<!--                android:layout_marginHorizontal="100dp"-->
+<!--                />-->
 
-            <ImageView
-                android:id="@+id/share_post_icon"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_baseline_ios_share"
-                android:layout_toRightOf="@+id/comment_post_icon"
-                />
+<!--            <ImageView-->
+<!--                android:id="@+id/share_post_icon"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_baseline_ios_share"-->
+<!--                android:layout_toRightOf="@+id/comment_post_icon"-->
+<!--                />-->
 
-        </RelativeLayout>
+<!--        </RelativeLayout>-->
 
     </RelativeLayout>
 

@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.harvest.modals.IssueModal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -84,14 +85,14 @@ public class CreatePostFragment extends Fragment{
 
                 titleField = view.findViewById(R.id.titleField);
                 detailField = view.findViewById(R.id.detailField);
-                authorField = view.findViewById(R.id.authorField);
+//                authorField = view.findViewById(R.id.authorField);
 
 
                 String title = titleField.getText().toString();
                 String detail = detailField.getText().toString();
-                String author = authorField.getText().toString();
+                String author = FirebaseAuth.getInstance().getCurrentUser().getEmail();
 
-                if (TextUtils.isEmpty(title) && TextUtils.isEmpty(detail) && TextUtils.isEmpty(author)) {
+                if (TextUtils.isEmpty(title) && TextUtils.isEmpty(detail)) {
                     // if the text fields are empty
                     // then show the below message.
                     Toast.makeText(getContext(), "Please Fill in the missing data.", Toast.LENGTH_SHORT).show();
