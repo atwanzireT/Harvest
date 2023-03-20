@@ -32,9 +32,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void handleSignin(View view) {
         EditText emailField, passwordField;
+        ProgressBar loginProgressbar;
         FirebaseAuth mAuth;
         emailField = findViewById(R.id.loginemailField);
         passwordField = findViewById(R.id.loginpasswordField);
+        loginProgressbar = findViewById(R.id.loginProgress);
+        loginProgressbar.setVisibility(View.VISIBLE);
         mAuth = FirebaseAuth.getInstance();
 
 
@@ -54,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
                         loginIntent.putExtra("email", mAuth.getCurrentUser().getEmail());
                         loginIntent.putExtra("uid", mAuth.getCurrentUser().getUid());
+                        loginProgressbar.setVisibility(View.GONE);
                         startActivity(loginIntent);
                     } else {
                         emailField.setText("");

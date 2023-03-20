@@ -19,7 +19,7 @@ public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder
     Context context;
     ArrayList<IssueModal> list;
 
-    private OnIssueClickListener onIssueClickListener;
+    private static OnIssueClickListener onIssueClickListener;
     public interface OnIssueClickListener {
         void onIssueClicked(int position);
     }
@@ -56,6 +56,13 @@ public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onIssueClickListener.onIssueClicked(getAdapterPosition());
+                }
+            });
 
             title = itemView.findViewById(R.id.textCardTitle);
             detail = itemView.findViewById(R.id.textCardBody);
