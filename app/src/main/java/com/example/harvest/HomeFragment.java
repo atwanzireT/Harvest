@@ -99,9 +99,7 @@ public class HomeFragment extends Fragment {
         onIssueClickListener = new IssueAdaptor.OnIssueClickListener() {
             @Override
             public void onIssueClicked(int position) {
-                Toast.makeText(getContext(), "clicked on Issue", Toast.LENGTH_SHORT).show();
-
-//                startActivity(new Intent(getContext(), IssueActivity.class));
+                startActivity(new Intent(getContext(), CommentActivity.class));
             }
         };
         issueAdaptor = new IssueAdaptor(getContext(), list, onIssueClickListener);
