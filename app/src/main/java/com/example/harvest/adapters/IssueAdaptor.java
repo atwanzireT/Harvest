@@ -5,14 +5,18 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.harvest.R;
 import com.example.harvest.modals.IssueModal;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder> {
@@ -43,6 +47,12 @@ public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder
         holder.title.setText(issueModal.getTitle());
         holder.detail.setText(issueModal.getDetail());
         holder.author.setText(issueModal.getAuthor());
+
+        Glide.with(context).load(list.get(position)
+                        .getImageUri()).error(R.drawable.media)
+                .placeholder(null).into(holder.image);
+//
+//        Picasso.get().load(new File(issueModal.getImageUri())).into(holder.imageview);
     }
 
     @Override
@@ -53,6 +63,7 @@ public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
         TextView title, detail, author;
+        ImageView image;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -60,6 +71,8 @@ public class IssueAdaptor extends RecyclerView.Adapter<IssueAdaptor.MyViewHolder
             title = itemView.findViewById(R.id.textCardTitle);
             detail = itemView.findViewById(R.id.textCardBody);
             author = itemView.findViewById(R.id.textcard_username);
+            image = itemView.findViewById(R.id.imageView);
+
         }
     }
 }

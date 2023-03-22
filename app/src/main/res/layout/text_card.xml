@@ -47,6 +47,15 @@
                 android:textSize="12dp" />
 
         </RelativeLayout>
+
+
+        <ImageView
+            android:layout_below="@+id/cardBody"
+            android:id="@+id/imageView"
+            android:layout_width="440dp"
+            android:layout_height="440dp"
+            android:src="@drawable/media"
+            android:layout_centerHorizontal="true"/>
         <TextView
             android:id="@+id/textCardTitle"
             android:layout_width="wrap_content"
@@ -54,10 +63,11 @@
             android:layout_centerHorizontal="true"
             android:text="How do i treat swine flu in Piggery "
             android:scaleType="centerCrop"
-            android:layout_below="@+id/cardBody"
+            android:layout_below="@+id/imageView"
             android:clickable="true"
             android:focusable="true"
-            android:textSize="20dp"/>
+            android:textSize="20dp"
+            />
 
         <TextView
             android:id="@+id/textCardBody"
@@ -69,7 +79,8 @@
             android:layout_below="@+id/textCardTitle"
             android:clickable="true"
             android:focusable="true"
-            android:textSize="16dp"/>
+            android:textSize="16dp"
+            android:layout_margin="20dp"/>
 
 <!--        <RelativeLayout-->
 <!--            android:id="@+id/card_icons"-->
