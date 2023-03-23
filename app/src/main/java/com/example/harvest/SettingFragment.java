@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -51,6 +52,7 @@ public class SettingFragment extends Fragment {
     private Uri imagePath;
     private Button logoutBtn, uploadBtn;
     private ImageView profileImg;
+    private TextView userEmailFeild;
 
 
     public SettingFragment() {
@@ -93,6 +95,8 @@ public class SettingFragment extends Fragment {
         logoutBtn = view.findViewById(R.id.logoutBtn);
         profileImg = view.findViewById(R.id.user_profile_img);
         uploadBtn = view.findViewById(R.id.upload_photo_btn);
+        userEmailFeild = view.findViewById(R.id.user_emailField);
+        userEmailFeild.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
 
         uploadBtn.setOnClickListener(new View.OnClickListener() {
             @Override

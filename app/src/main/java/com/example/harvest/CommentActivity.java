@@ -37,13 +37,12 @@ public class CommentActivity extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
     private ArrayList<CommentModal> comments;
+    TextView messageTxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
-
-        getComments();
 
         comments = new ArrayList<>();
         commentAdaptor = new CommentAdaptor(this, comments);
@@ -56,7 +55,10 @@ public class CommentActivity extends AppCompatActivity {
         comment_rv = findViewById(R.id.comment_rv);
         comment_rv.setHasFixedSize(true);
         comment_rv.setLayoutManager(new LinearLayoutManager(CommentActivity.this));
+        messageTxt = findViewById(R.id.idTVMsg);
+//        messageTxt.setText(issue_id.toString());
 
+        getComments(issue_id);
 
         sendImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +79,9 @@ public class CommentActivity extends AppCompatActivity {
         });
     }
 
-    private void getComments() {
+    private void getComments(String str) {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("issue_comments");
-        Query query = ref.orderByChild("issue_id").equalTo(issue_id);
+        Query query = ref.orderByChild("issueID").equalTo(str);
                 query.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
