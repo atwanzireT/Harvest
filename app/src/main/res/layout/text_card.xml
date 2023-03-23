@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="5px">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -52,17 +53,16 @@
         <ImageView
             android:layout_below="@+id/cardBody"
             android:id="@+id/imageView"
-            android:layout_width="440dp"
-            android:layout_height="440dp"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
             android:src="@drawable/media"
+            android:scaleType="centerCrop"
             android:layout_centerHorizontal="true"/>
         <TextView
             android:id="@+id/textCardTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:text="How do i treat swine flu in Piggery "
-            android:scaleType="centerCrop"
             android:layout_below="@+id/imageView"
             android:clickable="true"
             android:focusable="true"
@@ -73,14 +73,14 @@
             android:id="@+id/textCardBody"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:text="How do i treat swine flu in Piggery "
-            android:scaleType="centerCrop"
             android:layout_below="@+id/textCardTitle"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="5dp"
             android:clickable="true"
             android:focusable="true"
-            android:textSize="16dp"
-            android:layout_margin="20dp"/>
+            android:text="How do i treat swine flu in Piggery "
+            android:textSize="16dp" />
 
 <!--        <RelativeLayout-->
 <!--            android:id="@+id/card_icons"-->

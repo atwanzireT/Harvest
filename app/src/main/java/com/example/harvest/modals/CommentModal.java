@@ -1,11 +1,21 @@
 package com.example.harvest.modals;
 
 public class CommentModal {
-    String issueID, comment;
+    String issueID, comment, author;
 
-    public CommentModal(String issueID, String comment) {
+    public CommentModal(){}
+    public CommentModal(String issueID, String comment, String author) {
         this.issueID = issueID;
         this.comment = comment;
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getIssueID() {
