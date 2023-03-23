@@ -4,19 +4,28 @@ import android.net.Uri;
 
 public class IssueModal {
 
-    String title, detail, author;
+    String randId, title, detail, author;
     String imageUri;
     public IssueModal() {
         // Default constructor required for calls to DataSnapshot.getValue(IssueModal.class)
     }
 
-    public IssueModal(String title, String detail, String author, Uri imageUri){}
+    public IssueModal(String randId,String title, String detail, String author, Uri imageUri){}
     //    constructor
-    public IssueModal(String title, String detail, String author,String imageUri) {
+    public IssueModal(String randId, String title, String detail, String author,String imageUri) {
+        this.randId = randId;
         this.title = title;
         this.detail = detail;
         this.author = author;
         this.imageUri=imageUri;
+    }
+
+    public String getRandId() {
+        return randId;
+    }
+
+    public void setRandId(String randId) {
+        this.randId = randId;
     }
 
     public String getTitle() {

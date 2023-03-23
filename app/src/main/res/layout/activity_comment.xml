@@ -5,5 +5,62 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CommentActivity">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/topbar"/>
+
+
+        <TextView
+            android:id="@+id/idTVMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="20dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Comments"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/comment_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginHorizontal="20dp"
+        >
+        <EditText
+            android:id="@+id/editCmtInput"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:maxHeight="100dp"
+            android:minHeight="48dp"
+            android:hint="Message"
+            android:paddingHorizontal="10dp"
+            android:textColor="#ffffff"
+            android:background="@drawable/card_background_gray"/>
+
+        <ImageView
+            android:id="@+id/sendCmtBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/baseline_send"
+            android:layout_toRightOf="@+id/editCmtInput"
+            android:layout_alignParentEnd="true"/>
+    </RelativeLayout>
+
 
 </RelativeLayout>

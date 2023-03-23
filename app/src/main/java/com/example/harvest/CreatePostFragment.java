@@ -106,16 +106,18 @@ public class CreatePostFragment extends Fragment {
         sendIssueBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                String id = "1";
                 String title = titleField.getText().toString().trim();
                 String detail = detailField.getText().toString().trim();
                 String author = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+                String randId = ""+System.currentTimeMillis();
 
                 // Check if the required fields are empty
                 if (TextUtils.isEmpty(title) || TextUtils.isEmpty(detail) || TextUtils.isEmpty(author)) {
                     Toast.makeText(getActivity(), "Please fill all the fields", Toast.LENGTH_SHORT).show();
                 } else {
 // Create a new IssueModal object with the entered details
-                    IssueModal issueModal = new IssueModal(title, detail, author, "");
+                    IssueModal issueModal = new IssueModal(randId, title, detail, author, "");
 
 
                     // Create a dialog to show the progress
@@ -196,7 +198,6 @@ public class CreatePostFragment extends Fragment {
                 // Reset the UI elements
                 titleField.setText("");
                 detailField.setText("");
-                authorField.setText("");
                 imageField.setImageResource(R.drawable.media);
             }
         });

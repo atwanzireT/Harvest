@@ -99,7 +99,8 @@ public class HomeFragment extends Fragment {
         onIssueClickListener = new IssueAdaptor.OnIssueClickListener() {
             @Override
             public void onIssueClicked(int position) {
-                startActivity(new Intent(getContext(), CommentActivity.class));
+                startActivity(new Intent(getContext(), CommentActivity.class)
+                        .putExtra("issue_id", list.get(position).getRandId()));
             }
         };
         issueAdaptor = new IssueAdaptor(getContext(), list, onIssueClickListener);
